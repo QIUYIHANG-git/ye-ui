@@ -4,7 +4,7 @@
 			<div><img src="../../../assets/img/nihao.png" alt=""></div>
 			<div class="ye-input"><input type="text"> <img src="../../../assets/img/sousuo.png" alt=""></div>
 		</div>
-		<div class="ye-navitme-text" >
+		<div class="ye-navitme-box" >
 			<div :class="shownav == index?'ye-navitme-texty':'ye-navitme-text'" v-for="(navarr,index) in ins" :key="index" @click="indexnav(index)">{{navarr}}</div>
 		</div>
 	</div>
@@ -63,20 +63,23 @@
 				}
 			}
 		}
-		.ye-navitme-text{
+		.ye-navitme-box{
 			width: 60%;
-			color: #aaaaaa;
+			padding: 0 18.6875rem;
 			display: flex;
-			justify-content: space-around;
-			align-items: center;
 			cursor: pointer;
-		}
-		.ye-navitme-texty{
-			width: 60%;
-			color: #008b75;
-			display: flex;
 			justify-content: space-around;
 			align-items: center;
+			.ye-navitme-text{
+				color: #aaaaaa;
+				font-size: 1.375rem;
+				
+			}
+			.ye-navitme-texty{
+				color: #008b75;
+				font-size: 1.375rem;
+			}
 		}
+		
 	}
 </style>

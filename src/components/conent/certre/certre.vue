@@ -30,7 +30,8 @@
 		// align-items: center;
 		.ye-left{
 			color: rgba(239,159,138,.65);
-			
+			margin-left: 120PX;
+			font-size: 38PX;
 		}
 		.ye-right{
 			
