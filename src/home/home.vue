@@ -1,165 +1,19 @@
 <template>
 	<div class="pages">
-		<div class="itme">
-		    <div class="hei">
-			    组件目录
-			</div>
-			<div class="box" :style="speeds">
-				<span class="span" @click="btne">导航栏组件</span>
-				<li >头部导航栏</li>
-				<li>分页导航栏</li>
-			</div>
-			<div class="boxone" :style="speeds">
-				<span class="span" @click="btnone">轮播组件</span>
-				<li >走马灯</li>
-				<li>点击事件</li>
-			</div>
-			<div class="boxone" :style="speeds">
-				<span class="span" @click="btntow">轮播组件</span>
-				<li >走马灯</li>
-				<li>点击事件</li>
-			</div>
-			<div class="boxone" :style="speeds">
-				<span class="span" @click="btntherr">轮播组件</span>
-				<li >走马灯</li>
-				<li>点击事件</li>
-			</div>
-			<div class="boxone" :style="speeds">
-				<span class="span" @click="btnfove">轮播组件</span>
-				<li >走马灯</li>
-				<li>点击事件</li>
-			</div>
-			<div class="boxone" :style="speeds">
-				<span class="span" @click="btnwu">轮播组件</span>
-				<li >走马灯</li>
-				<li>点击事件</li>
-			</div>
-		</div>
-	    <div class="right-itme">
-			<div class="title">
-				头部导航栏
-			</div>
-			<div class="box-text">
-				效果演示
-			</div>
-			<div class="dao-box">
-				<div>
-					<ul>
-						<li><a>导航栏一</a> <span></span></li>
-						<li><a>导航栏二</a> <span></span></li>
-						<li><a>导航栏三</a> <span></span></li>
-						<li><a>导航栏四</a> <span></span></li>
-						<li><a>导航栏五</a> <span></span></li>
-					</ul>
-				</div>
-			</div>
-			<div class="code-box">
-				<div class="show" @click="codeshow">展开显示代码</div>
-				<div v-show="codeone">
-					<div>HTML代码片段:</div>
-							<div>
-								<pre>
-						{{body}}
-								</pre>
-							</div>
-							<div>CSS代码片段:</div>
-							<div><pre>
-		.dao-box{
-			margin-top: 25px;
-			background-color: #a7ffec;
-			padding: 15px 15px;
-			ul{
-				display: flex;
-				align-items: center;
-				li{
-					display:inline-block;
-					margin-right: 15px;
-					background-color: #ffff7f;
-					padding: 7px;
-					cursor: pointer;
-					a{
-						display: inline-block;
-					}
-					span{
-						display: inline-block;
-						margin-left: 5px;
-						border-top: 10px solid #7fff50;
-						border-left: 10px solid rgba(0,0,0,0);
-						transform:rotate(45deg) ;
-					}
-				}
-				
-			} 
-		}
-		.dao-box li:hover  span{
-			transform:rotate(135deg) ;
-		}
-								</pre>
-							</div>
-				</div>
-			
-				
-			</div>
-			<div class="box-text">
-				下边距跟随
-			</div>
-			<div class="dao-box dao-one">
-				<div>
-					<ul>
-						<li class=""><a>导航栏一</a> <span></span></li>
-						<li class=""><a>导航栏二</a> <span></span></li>
-						<li class=""><a>导航栏三</a> <span></span></li>
-						<li class=""><a>导航栏四</a> <span></span></li>
-						<li class=""><a>导航栏五</a> <span></span></li>
-					</ul>
-				</div>
-			</div>
-			
-		</div>
-		
+		<top-navigation :ins="ins"></top-navigation>
 	</div>
 </template>
 
 <script>
+	import TopNavigation from '../components/conent/topNavigation/TopNavigation.vue'
 	export default {
 		name:'home',
+		components:{
+			TopNavigation
+		},
 		data(){
 			return{
-				speeds: {
-					left:0,
-					height:'175px',
-				},
-				speed:5,
-				homesp:'',
-				conleft:'',
-				// 获取盒子
-			    box : document.getElementsByClassName('box'),
-				span: document.getElementsByClassName('span'),
-				boxone: document.getElementsByClassName("boxone"),
-				// 获取导航一盒子
-				codeBox: document.getElementsByClassName("code-box"),
-				body:`
-		<div class="dao-box">
-			<div>
-			  <ul>
-				<li><a>导航栏一</a> <span></span></li>
-				<li><a>导航栏二</a> <span></span></li>
-				<li><a>导航栏三</a> <span></span></li>
-				<li><a>导航栏四</a> <span></span></li>
-				<li><a>导航栏五</a> <span></span></li>
-			  </ul>
-			</div>
-		</div>`,
-				// 默认值是张开为false,关闭为true
-				state:false,
-				onestate:false,
-				towstate:false,
-				therrtate:false,
-				fovestate:false,
-				wustate:false,
-				// 导航一盒子默认值
-				codeone:true,
-				hed:''
+				ins:['指南','组件','资源']
 			}
 		},
 		mounted() {
@@ -290,7 +144,8 @@
 
 <style scoped="scoped" lang="less">
 	.pages{
-		display: flex;
+		padding: 0;
+		margin: 0;
 		.itme{
 			margin-left: 100px;
 			background-color: #c7c7c7;
@@ -433,14 +288,6 @@
 		position: relative;
 	}
 	
-	// .dao-one li:nth-last-child(n)::before{
-	// 	content:'';
-	// 	width:109px;
-	// 	position: absolute;
-	// 	top: 72px;
-	// 	left: 55px;
-	// 	border-bottom:2px solid #ff0000;
-	// }
 	.img-box{
 		li{
 			list-style: none vb98;
