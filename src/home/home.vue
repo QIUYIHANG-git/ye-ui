@@ -1,15 +1,21 @@
 <template>
 	<div class="pages">
 		<top-navigation :ins="ins"></top-navigation>
+		<certre></certre>
+		<yebase></yebase>
 	</div>
 </template>
 
 <script>
 	import TopNavigation from '../components/conent/topNavigation/TopNavigation.vue'
+	import certre from '../components/conent/certre/certre.vue'
+	import yebase from '../components/conent/yebase/yebase.vue'
 	export default {
 		name:'home',
 		components:{
-			TopNavigation
+			TopNavigation,
+			certre,
+			yebase
 		},
 		data(){
 			return{

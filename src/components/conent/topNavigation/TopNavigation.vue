@@ -27,7 +27,6 @@
 		methods:{
 			indexnav(index){
 				this.shownav = index
-				console.log(this.shownav)
 			}	
 		}
 		
@@ -42,19 +41,24 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		border-bottom: 1px solid rgba(255,0,0,.2);
 		.ye-navitme{
 			width: 40%;
 			display: flex;
 			justify-content: space-around;
 			align-items: center;
 			.ye-input{
-				padding:.2rem .5rem;
 				display: flex;
+				height: 43px;
+				width: 308px;
 				justify-content: space-around;
 				align-items: center;
 				background-color: #f0f0f0;
 				input{
 					border: none;
+					height: 80%;
+					width: 80%;
+					box-sizing: border-box;
 					background-color: #f0f0f0;
 				}
 			}
